@@ -45,6 +45,25 @@ namespace WEB_ProyectoFinal_Grupo3.Controllers
             return View();
         }
 
+        public IActionResult Membresias()
+        {
+            return View();
+        }
+
+        public async Task<IActionResult> Paquetes()
+        {
+            var dBContext = _context.Paquetes.Include(p => p.Categoria);
+            return View(await dBContext.ToListAsync());
+        }
+
+        public async Task<IActionResult> Categorias()
+        {
+            var dBContext = _context.Categorias;
+            return View(await dBContext.ToListAsync());
+        }
+
+
+
         [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
         public IActionResult Error()
         {

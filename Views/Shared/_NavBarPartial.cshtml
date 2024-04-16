@@ -25,36 +25,29 @@
                 <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                     <li class="nav-item dropdown">
                         <a class="nav-link dropdown-toggle text-white" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-th-large"></i>
-                            <span>Categorías</span>
+                            <i class="fas fa-bars"></i>
+                            <span>Menú</span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <li><a asp-area="" asp-controller="Categorias" asp-action="Index" class="dropdown-item"><i class="fas fa-eye"></i> Ver Categorías</a></li>
-                            <li><a asp-area="" asp-controller="Categorias" asp-action="Create" class="dropdown-item"><i class="fas fa-plus"></i> Crear Categoría</a></li>
-                            <!-- Agrega otros elementos de menú relacionados con categorías si es necesario -->
+                            <li><a asp-area="" asp-controller="Home" asp-action="Categorias" class="dropdown-item"><i class="fas fa-box"></i> Categorias</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Paquetes" class="dropdown-item"><i class="fas fa-box"></i> Paquetes</a></li>
+                            <li><a asp-area="" asp-controller="Home" asp-action="Membresias" class="dropdown-item"><i class="fas fa-id-card"></i> Membresías</a></li>
+
+                 
                         </ul>
                     </li>
 
                     <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="fas fa-th-large"></i>
-                            <span>Paquetes</span>
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-cogs"></i>
+                            <span>Administración</span>
                         </a>
-                        <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
-                            <li><a asp-area="" asp-controller="Paquetes" asp-action="Index" class="dropdown-item"><i class="fas fa-eye"></i> Ver Paquetes</a></li>
-                            <li><a asp-area="" asp-controller="Paquetes" asp-action="Create" class="dropdown-item"><i class="fas fa-plus"></i> Crear Paquetes</a></li>
-                            <!-- Agrega otros elementos de menú relacionados con categorías si es necesario -->
-                        </ul>
-                    </li>
-
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle text-white" href="#" id="membresiasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
-                            <i class="bi bi-person"></i> Membresías
-                        </a>
-                        <ul class="dropdown-menu" aria-labelledby="membresiasDropdown">
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Membresía Estándar</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-gem"></i> Membresía Premium</a></li>
-                            <li><a class="dropdown-item" href="#"><i class="bi bi-star"></i> Membresía VIP</a></li>
+                        <ul class="dropdown-menu" aria-labelledby="adminDropdown">
+                            <li><a asp-area="" asp-controller="Categorias" asp-action="Index" class="dropdown-item"><i class="fas fa-list"></i> Ver Categorías</a></li>
+                            <li><a asp-area="" asp-controller="Categorias" asp-action="Create" class="dropdown-item"><i class="fas fa-plus-circle"></i> Crear Categoría</a></li>
+                            <li><a asp-area="" asp-controller="Paquetes" asp-action="Index" class="dropdown-item"><i class="fas fa-list"></i> Ver Paquetes</a></li>
+                            <li><a asp-area="" asp-controller="Paquetes" asp-action="Create" class="dropdown-item"><i class="fas fa-plus-circle"></i> Crear Paquete</a></li>
+                            <!-- Agrega otros elementos de menú relacionados con la administración si es necesario -->
                         </ul>
                     </li>
                 </ul>

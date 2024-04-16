@@ -19,6 +19,7 @@ namespace WEB_ProyectoFinal_Grupo3.Models
         [Required(ErrorMessage = "El costo es obligatorio.")]
         [RegularExpression(@"^\d+(\.\d{1,2})?$", ErrorMessage = "El costo debe tener hasta dos decimales.")]
         [Range(0, 1000000, ErrorMessage = "El costo debe estar entre 0 y 1,000,000.")]
+        [DisplayFormat(DataFormatString = "{0:N2}", ApplyFormatInEditMode = true)]
         public required decimal Costo { get; set; }
 
         [Required(ErrorMessage = "La duración es obligatoria.")]

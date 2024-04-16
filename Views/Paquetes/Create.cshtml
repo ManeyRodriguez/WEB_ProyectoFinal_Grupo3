@@ -1,10 +1,8 @@
-﻿@model WEB_ProyectoFinal_Grupo3.Models.Paquete
+﻿@model WEB_ProyectoFinal_Grupo3.Models.Categoria
 
 @{
     ViewData["Title"] = "Create";
 }
-
-
 
 <hr />
 
@@ -16,61 +14,38 @@
             <form asp-action="Create" enctype="multipart/form-data">
                 <div asp-validation-summary="ModelOnly" class="text-danger"></div>
                 <div class="mb-3">
-                    <label asp-for="Nombre" class="form-label"></label>
+                    <label asp-for="Nombre" class="form-label">Nombre:</label>
                     <input asp-for="Nombre" class="form-control" />
                     <span asp-validation-for="Nombre" class="text-danger"></span>
                 </div>
 
                 <div class="mb-3">
-                    <label asp-for="Descripcion" class="form-label"></label>
+                    <label asp-for="Descripcion" class="form-label">Descripción:</label>
                     <textarea asp-for="Descripcion" rows="4" class="form-control" style="resize: none;" oninput="autoResize(this)"></textarea>
                     <span asp-validation-for="Descripcion" class="text-danger"></span>
                 </div>
 
-
                 <div class="mb-3">
-                    <label asp-for="Costo" class="form-label"></label>
-                    <div class="input-group">
-                        <span class="input-group-text">RD$</span>
-                        <input asp-for="Costo" class="form-control" />
-                       
-                    </div>
-                    <span asp-validation-for="Costo" class="text-danger"></span>
-                </div>
-
-                <div class="mb-3">
-                    <label asp-for="Duracion" class="form-label"></label>
-                    <div class="input-group">
-                        <input asp-for="Duracion" class="form-control" autocomplete="off" min="1" max="535680">
-                        <span class="input-group-text"> Minutos</span>
-                    </div>
-                    <span asp-validation-for="Duracion" class="text-danger"></span>
-                </div>
-
-
-
-                <div class="mb-3">
-                    <label asp-for="IdCategoria" class="form-label">Categorias</label>
-                    <select asp-for="IdCategoria" class="form-control" asp-items="ViewBag.IdCategoria"></select>
-                </div>
-                <div class="mb-3">
-                    <label asp-for="ImagenArchivo" class="form-label"></label>
+                    <label asp-for="ImagenArchivo" class="form-label">Imagen:</label>
                     <div class="custom-file">
                         <input asp-for="ImagenArchivo" type="file" class="custom-file-input" id="customFile1" accept=".jpg,.jpeg,.png">
                         <label class="custom-file-label" for="customFile1">Subir Logo</label>
                     </div>
                     <span asp-validation-for="ImagenArchivo" class="text-danger" style="font-size: 12px; display: block;"></span>
                 </div>
+
                 <div class="mb-3 text-center">
                     <button type="submit" class="btn btn-primary">Crear</button>
                 </div>
             </form>
         </div>
     </div>
-</div>
 
-<div class="text-center">
-    <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
+        </div>
+    </div>
 </div>
 
 @section Scripts {
@@ -80,5 +55,4 @@
             textarea.style.height = (textarea.scrollHeight) + 'px';
         }
     </script>
-
 }

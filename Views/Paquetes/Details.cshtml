@@ -4,44 +4,32 @@
     ViewData["Title"] = "Details";
 }
 
-<h1>Details</h1>
 
-<div class="card">
-    <div class="card-body">
-        <h4 class="card-title">Paquete</h4>
-        <dl class="row">
-            <dt class="col-sm-3">Nombre:</dt>
-            <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
 
-            <dt class="col-sm-3">Descripción:</dt>
-            <dd class="col-sm-9">@Html.DisplayFor(model => model.Descripcion)</dd>
-
-            <dt class="col-sm-3">Costo:</dt>
-            <dd class="col-sm-9">@Html.DisplayFor(model => model.Costo)</dd>
-
-            <dt class="col-sm-3">Duración:</dt>
-            <dd class="col-sm-9">@Html.DisplayFor(model => model.Duracion)</dd>
-
-            <dt class="col-sm-3">Estado:</dt>
-            <dd class="col-sm-9">@Html.DisplayFor(model => model.Estado)</dd>
-
-            <dt class="col-sm-3">Imagen:</dt>
-            <dd class="col-sm-9">
-                @if (!string.IsNullOrEmpty(Model.ImagenPaquetePath))
-                {
-                    <img src="@Model.ImagenPaquetePath" alt="Imagen" class="img-fluid">
-                }
-                else
-                {
-                    <span>No Image</span>
-                }
-            </dd>
-
-            <dt class="col-sm-3">Categoría:</dt>
-            <dd class="col-sm-9">@Html.DisplayFor(model => model.Categoria.Descripcion)</dd>
-        </dl>
+<div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+        <div class="col-md-4">
+            <!-- Aquí va la imagen del paquete -->
+            @if (!string.IsNullOrEmpty(Model.ImagenPaquetePath))
+            {
+                <img src="@Model.ImagenPaquetePath" class="img-fluid rounded-start" alt="Imagen del paquete">
+            }
+            else
+            {
+                <span>No disponible</span>
+            }
+        </div>
+        <div class="col-md-8">
+            <div class="card-body">
+                <h5 class="card-title">@Html.DisplayFor(model => model.Nombre)</h5>
+                <p class="card-text">@Html.DisplayFor(model => model.Descripcion)</p>
+                <p class="card-text">Costo: RD$ @Html.DisplayFor(model => model.Costo)</p>
+                <p class="card-text">Duración: @Html.DisplayFor(model => model.Duracion) minutos</p>
+            </div>
+        </div>
     </div>
 </div>
+
 
 <div class="mt-3">
     <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>

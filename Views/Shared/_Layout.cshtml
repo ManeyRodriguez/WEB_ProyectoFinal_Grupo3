@@ -2,11 +2,12 @@
 @using Microsoft.AspNetCore.Identity;
 @using WEB_ProyectoFinal_Grupo3.Areas.Identity.Data;
 
+
 @inject SignInManager<Usuario> SignInManager
 @inject UserManager<Usuario> UserManager
 
 @{
-
+    
 
     ViewData["NombreWEB"] = "Portal del Club de Recreación - Grupo 3";
 
@@ -68,7 +69,7 @@
         </div>
     </section>
 
-    <footer id="footer" class="mt-5">
+    <footer id="footer" class="mt-1">
         <div class="container-fluid">
             <!-- Footer content -->
             <section class="text-white text-center text-lg-start bg-dark">
@@ -96,7 +97,7 @@
 
                 <!-- Section: Links -->
                 <section class="Footer-Content">
-                    <div class="container text-center text-md-start mt-5">
+                    <div class="container text-center text-md-start mt-1">
                         <!-- Grid row -->
                         <div class="row mt-3">
                             <!-- Grid column -->
@@ -188,28 +189,9 @@
             <i class="bi bi-chat"></i> Chat
         </button>
 
-        <!-- Modal de chat -->
-        <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="chatModalLabel">Chat</h5>
-                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                    </div>
-                    <div class="modal-body">
-                        <div class="chat-container">
-                            <div class="chat-message">Usuario: ¡Hola! ¿Cómo estás?</div>
-                            <div class="chat-message received">Bot: ¡Hola! Estoy bien, gracias por preguntar.</div>
-                        </div>
-                        <div class="input-group mt-3">
-                            <input type="text" class="form-control" placeholder="Escribe tu mensaje...">
-                            <button class="btn btn-primary" type="button">Enviar</button>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
+      
 
+   
 
         <button id="goTopBtn" class="btn btn-dark text-white"
                 style="position: fixed; bottom: 20px; right: 10px; display: none;" onclick="scrollToTop()">

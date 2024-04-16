@@ -278,6 +278,9 @@ namespace WEB_ProyectoFinal_Grupo3.Controllers
             // Verificar si la imagen existe y eliminarla si es así
             if (!string.IsNullOrEmpty(categoria.ImagenCategoriaPath))
             {
+
+              
+
                 string imagePath = Path.Combine(_webHostEnvironment.WebRootPath, categoria.ImagenCategoriaPath.TrimStart('/'));
                 if (System.IO.File.Exists(imagePath))
                 {
