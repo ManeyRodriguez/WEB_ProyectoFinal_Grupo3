@@ -1,0 +1,97 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using WEB_ProyectoFinal_Grupo3.Areas.Identity.Data
+
+
+@inject SignInManager<Usuario> SignInManager
+@inject UserManager<Usuario> UserManager
+
+@{
+    bool Logeado = SignInManager.IsSignedIn(User);
+
+}
+
+<nav class="navbar navbar-expand-lg navbar-light bg-dark fixed-top">
+    <div class="container-fluid">
+        <a class="navbar-brand text-white" href="@Url.Action("Index", "Home")"><i class="bi bi-house-door-fill text-white"></i> Inicio</a>
+        <button class="navbar-toggler bg-light" type="button" data-bs-toggle="collapse" data-bs-target="#navbarContent"
+                aria-controls="navbarContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon text-white"></span>
+        </button>
+
+        <div class="collapse navbar-collapse" id="navbarContent">
+
+            @if (Logeado == true)
+            {
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-th-large"></i>
+                            <span>Categorías</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
+                            <li><a asp-area="" asp-controller="Categorias" asp-action="Index" class="dropdown-item"><i class="fas fa-eye"></i> Ver Categorías</a></li>
+                            <li><a asp-area="" asp-controller="Categorias" asp-action="Create" class="dropdown-item"><i class="fas fa-plus"></i> Crear Categoría</a></li>
+                            <!-- Agrega otros elementos de menú relacionados con categorías si es necesario -->
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="categoriasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="fas fa-th-large"></i>
+                            <span>Paquetes</span>
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="categoriasDropdown">
+                            <li><a asp-area="" asp-controller="Paquetes" asp-action="Index" class="dropdown-item"><i class="fas fa-eye"></i> Ver Paquetes</a></li>
+                            <li><a asp-area="" asp-controller="Paquetes" asp-action="Create" class="dropdown-item"><i class="fas fa-plus"></i> Crear Paquetes</a></li>
+                            <!-- Agrega otros elementos de menú relacionados con categorías si es necesario -->
+                        </ul>
+                    </li>
+
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle text-white" href="#" id="membresiasDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                            <i class="bi bi-person"></i> Membresías
+                        </a>
+                        <ul class="dropdown-menu" aria-labelledby="membresiasDropdown">
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-person"></i> Membresía Estándar</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-gem"></i> Membresía Premium</a></li>
+                            <li><a class="dropdown-item" href="#"><i class="bi bi-star"></i> Membresía VIP</a></li>
+                        </ul>
+                    </li>
+                </ul>
+
+            }
+
+            <div class="d-flex align-items-center justify-content-start">
+                @if (Logeado == true)
+                {
+                    <div class="d-flex align-items-center p-1">
+                        <span class="text-white me-2">¡Hola, @UserManager.GetUserName(User)! </span>
+                        <form method="post" asp-area="Identity" asp-page="/Account/Logout" class="d-inline">
+                            <button type="submit" class="btn btn-outline-danger me-2">
+                                <i class="bi bi-box-arrow-left"></i> Cerrar sesión
+                            </button>
+                        </form>
+                    </div>
+
+                }
+                else
+                {
+                    <div class="d-flex align-items-center p-1">
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Login">
+                            <button type="submit" class="btn btn-outline-primary me-2">
+                                <i class="bi bi-box-arrow-in-right"></i> Iniciar sesión
+                            </button>
+                        </form>
+
+                        <form class="form-inline" asp-area="Identity" asp-page="/Account/Register">
+                            <button type="submit" class="btn btn-outline-success">
+                                <i class="bi bi-person-plus"></i> Registrarse
+                            </button>
+                        </form>
+                    </div>
+                }
+
+            </div>
+        </div> <!-- Cierre de navbar-collapse -->
+    </div> <!-- Cierre de container-fluid -->
+</nav>

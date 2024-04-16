@@ -1,0 +1,75 @@
+﻿@model WEB_ProyectoFinal_Grupo3.Models.Categoria
+
+@{
+    ViewData["Title"] = "Edit";
+}
+
+<partial name="_MensajesPartial" />
+
+<div class="container">
+    <div class="alert alert-warning" role="alert">
+        <strong>Advertencia:</strong> ¿Estás seguro de que deseas editar esta categoría?
+    </div>
+    <hr />
+    <div class="row">
+        <div class="col-md-6">
+            <form asp-action="Edit" enctype="multipart/form-data">
+                <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+                <input type="hidden" asp-for="Id" />
+
+                <div class="form-group">
+                    <label asp-for="Nombre" class="control-label">Nombre:</label>
+                    <input asp-for="Nombre" class="form-control" />
+                    <span asp-validation-for="Nombre" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="Descripcion" class="control-label">Descripción:</label>
+                    <input asp-for="Descripcion" class="form-control" />
+                    <span asp-validation-for="Descripcion" class="text-danger"></span>
+                </div>
+
+                <div class="form-group">
+                    <label class="control-label">Imagen Actual:</label>
+                    @if (!string.IsNullOrEmpty(Model.ImagenCategoriaPath))
+                    {
+                        <img src="@Model.ImagenCategoriaPath" class="img-thumbnail" alt="Imagen de la categoría" />
+                    }
+                    else
+                    {
+                        <div class="alert alert-warning" role="alert">
+                            No hay imagen disponible para esta categoría.
+                        </div>
+                    }
+                    <input type="hidden" asp-for="ImagenCategoriaPath" />
+                </div>
+
+                <div class="form-group">
+                    <label asp-for="ImagenArchivo" class="control-label">Nueva Imagen:</label>
+                    <div class="custom-file">
+                        <input asp-for="ImagenArchivo" type="file" class="custom-file-input" id="customFile1" accept=".jpg,.jpeg,.png">
+                        <label class="custom-file-label" for="customFile">Seleccionar Archivo</label>
+                    </div>
+                    <span asp-validation-for="ImagenArchivo" class="text-danger" style="font-size: 12px; display: block;"></span>
+                </div>
+
+                <div class="form-group mt-3">
+                    <button type="submit" class="btn btn-primary"><i class="fas fa-save"></i> Guardar</button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+    <div class="row mt-3">
+        <div class="col-md-6 mb-3">
+            <a asp-action="Index" class="btn btn-secondary"><i class="fas fa-arrow-left"></i> Volver a la Lista</a>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+}

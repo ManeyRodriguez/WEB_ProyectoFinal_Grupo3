@@ -1,0 +1,128 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+<div class="row justify-content-center">
+    <div class="col-md-6">
+
+
+
+
+        <form id="registerForm" asp-route-returnUrl="@Model.ReturnUrl" method="post" class="border rounded p-4 bg-light">
+            <h6 class="text-center mb-4">Crear nueva cuenta</h6>
+            <hr />
+            <div asp-validation-summary="ModelOnly" class="text-danger" role="alert"></div>
+
+
+            <div class="form-floating mb-3">        
+                <input asp-for="Input.FirstName" class="form-control" autocomplete="FirstName" aria-required="true" placeholder="Nombres" required />
+                <label asp-for="Input.FirstName">Nombres</label>
+                <span asp-validation-for="Input.FirstName" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">         
+                <input asp-for="Input.LastName" class="form-control" autocomplete="LastName" aria-required="true" placeholder="Apellidos" required />
+                <label asp-for="Input.LastName">Apellidos</label>
+                <span asp-validation-for="Input.LastName" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <label asp-for="Input.Email">Email</label>
+                <input asp-for="Input.Email" class="form-control" autocomplete="Email" aria-required="true" placeholder="name@example.com" required />
+                <span asp-validation-for="Input.Email" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Cedula" id="cedula-identidad" class="form-control" autocomplete="Cedula" aria-required="true" placeholder="999-9999999-9" required
+                       data-val="true" data-val-regex="El formato debe ser 000-0000000-0" data-val-regex-pattern="^\d{3}-\d{7}-\d{1}$"
+                       data-val-length="Debe tener exactamente 11 caracteres numericos" data-val-length-min="12" data-val-length-max="13" />
+                <label asp-for="Input.Cedula">Cedula</label>
+                <span asp-validation-for="Input.Cedula" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.PhoneNumber" id="phone-number" class="form-control" autocomplete="PhoneNumber" aria-required="true" placeholder="999-9999-9999" required
+                       data-val="true" data-val-regex="El formato debe ser 000-000-0000" data-val-regex-pattern="^\d{3}-\d{3}-\d{4}$"
+                       data-val-length="Debe tener exactamente 10 caracteres numericos" data-val-length-min="11" data-val-length-max="12" />
+                <label asp-for="Input.PhoneNumber">Telefono</label>
+                <span asp-validation-for="Input.PhoneNumber" class="text-danger"></span>
+            </div>
+
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.Password" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.Password">Password</label>
+                <span asp-validation-for="Input.Password" class="text-danger"></span>
+            </div>
+
+            <div class="form-floating mb-3">
+                <input asp-for="Input.ConfirmPassword" class="form-control" autocomplete="new-password" aria-required="true" placeholder="password" />
+                <label asp-for="Input.ConfirmPassword">Confirm Password</label>
+                <span asp-validation-for="Input.ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-floating mb-3">
+                <select asp-for="Input.IdMembresia" class="form-select" aria-label="Seleccione una membresía">
+                    <option value="" selected disabled>Seleccione una membresía</option>
+                    <option value="1">Standard</option>
+                    <option value="2">Premium</option>
+                    <option value="3">VIP</option>
+                </select>
+                <label asp-for="Input.IdMembresia">Membresia</label>
+                <span asp-validation-for="Input.IdMembresia" class="text-danger"></span>
+            </div>
+            <button id="registerSubmit" type="submit" class="w-100 btn btn-lg btn-primary">Registrar</button>
+        </form>
+    </div>
+</div>
+
+@section Scripts {
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            var cedulaInput = document.getElementById('cedula-identidad');
+            var phoneInput = document.getElementById('phone-number');
+
+            cedulaInput.addEventListener('input', function (e) {
+                var inputValue = e.target.value.replace(/\D/g, '');
+                var formattedValue = '';
+                if (inputValue.length > 3) {
+                    formattedValue += inputValue.substr(0, 3) + '-';
+                    if (inputValue.length > 10) {
+                        formattedValue += inputValue.substr(3, 7) + '-';
+                        formattedValue += inputValue.substr(10);
+                    } else {
+                        formattedValue += inputValue.substr(3);
+                    }
+                } else {
+                    formattedValue = inputValue;
+                }
+                e.target.value = formattedValue;
+            });
+
+            phoneInput.addEventListener('input', function (e) {
+                var inputValue = e.target.value.replace(/\D/g, '');
+                var formattedValue = '';
+                if (inputValue.length > 3) {
+                    formattedValue += inputValue.substr(0, 3) + '-';
+                    if (inputValue.length > 6) {
+                        formattedValue += inputValue.substr(3, 3) + '-';
+                        formattedValue += inputValue.substr(6);
+                    } else {
+                        formattedValue += inputValue.substr(3);
+                    }
+                } else {
+                    formattedValue = inputValue;
+                }
+                e.target.value = formattedValue;
+            });
+        });
+    </script>
+}
+
+
+   
+

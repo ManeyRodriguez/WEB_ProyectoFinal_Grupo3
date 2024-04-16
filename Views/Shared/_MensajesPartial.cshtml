@@ -1,0 +1,33 @@
+﻿@{
+    // Método para obtener y eliminar un mensaje de TempData
+    string GetAndRemoveTempDataMessage(string key)
+    {
+        if (TempData.ContainsKey(key))
+        {
+            var message = TempData[key] as string;
+            TempData.Remove(key);
+            return message ?? ""; // Si message es null, devolver una cadena vacía en su lugar
+        }
+        return "";
+    }
+
+    // Obtener el mensaje de error desde TempData.
+    string error = GetAndRemoveTempDataMessage("Error");
+
+    // Obtener el mensaje de éxito desde TempData.
+    string success = GetAndRemoveTempDataMessage("Success");
+}
+
+@if (!string.IsNullOrEmpty(error))
+{
+    <div class="alert alert-danger" role="alert">
+        <strong>@Html.Raw(error)</strong>
+    </div>
+}
+
+@if (!string.IsNullOrEmpty(success))
+{
+    <div class="alert alert-success" role="alert">
+        <strong>@Html.Raw(success)</strong>
+    </div>
+}

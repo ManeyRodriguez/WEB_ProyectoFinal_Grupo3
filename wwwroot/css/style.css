@@ -1,0 +1,24 @@
+<style>
+    
+   
+
+.centered-carousel {
+      display: block;
+      justify-content: center;
+      align-items: center;
+      height: 100vh; /* Ajusta la altura del contenedor al 100% de la altura de la ventana */
+    }
+
+  /* Estilo para el carrusel */
+    #carouselExampleCaptions {
+      height: 200px; /* Altura deseada para el carrusel */
+      width: 100%;
+    }
+    /* Estilo para las imágenes dentro del carrusel */
+    #carouselExampleCaptions .carousel-item img {
+      height: 200px; /* Altura deseada para las imágenes */
+      width: 100%;
+      object-fit: cover; /* Ajusta el tamaño de la imagen para cubrir el área 
+      especificada */
+    }
+  </style>

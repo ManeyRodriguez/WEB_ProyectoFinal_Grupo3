@@ -1,0 +1,49 @@
+﻿@model WEB_ProyectoFinal_Grupo3.Models.Paquete
+
+@{
+    ViewData["Title"] = "Details";
+}
+
+<h1>Details</h1>
+
+<div class="card">
+    <div class="card-body">
+        <h4 class="card-title">Paquete</h4>
+        <dl class="row">
+            <dt class="col-sm-3">Nombre:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Nombre)</dd>
+
+            <dt class="col-sm-3">Descripción:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Descripcion)</dd>
+
+            <dt class="col-sm-3">Costo:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Costo)</dd>
+
+            <dt class="col-sm-3">Duración:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Duracion)</dd>
+
+            <dt class="col-sm-3">Estado:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Estado)</dd>
+
+            <dt class="col-sm-3">Imagen:</dt>
+            <dd class="col-sm-9">
+                @if (!string.IsNullOrEmpty(Model.ImagenPaquetePath))
+                {
+                    <img src="@Model.ImagenPaquetePath" alt="Imagen" class="img-fluid">
+                }
+                else
+                {
+                    <span>No Image</span>
+                }
+            </dd>
+
+            <dt class="col-sm-3">Categoría:</dt>
+            <dd class="col-sm-9">@Html.DisplayFor(model => model.Categoria.Descripcion)</dd>
+        </dl>
+    </div>
+</div>
+
+<div class="mt-3">
+    <a asp-action="Edit" asp-route-id="@Model?.Id" class="btn btn-primary">Edit</a>
+    <a asp-action="Index" class="btn btn-secondary">Back to List</a>
+</div>

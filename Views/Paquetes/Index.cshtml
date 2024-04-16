@@ -1,0 +1,60 @@
+﻿@model IEnumerable<WEB_ProyectoFinal_Grupo3.Models.Paquete>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<partial name="_MensajesPartial" />
+
+<div class="d-flex justify-content-end mb-3">
+    <a class="btn btn-primary" asp-action="Create">Crear nuevo Paquete</a>
+</div>
+
+<table class="table table-striped">
+    <thead class="thead-dark">
+        <tr>
+            <th>Nombre</th>
+            <th>Descripción</th>
+            <th>Costo</th>
+            <th>Duración</th>
+            <th>Estado</th>
+            <th>Imagen</th>
+            <th>Categoría</th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var item in Model)
+        {
+            <tr>
+                <td>@item.Nombre</td>
+                <td>@item.Descripcion</td>
+                <td>@item.Costo</td>
+                <td>@item.Duracion</td>
+                <td>@item.Estado</td>
+                <td>
+                    @if (!string.IsNullOrEmpty(item.ImagenPaquetePath))
+                    {
+                        <img src="@item.ImagenPaquetePath" alt="Imagen" style="max-width: 100px; max-height: 100px;" />
+                    }
+                    else
+                    {
+                        <span>No Image</span>
+                    }
+                </td>
+                <td>@item.Categoria.Nombre</td>
+                <td>
+                    <a class="btn btn-sm btn-primary" asp-action="Edit" asp-route-id="@item.Id">
+                        <i class="fas fa-edit"></i>
+                    </a>
+                    <a class="btn btn-sm btn-info" asp-action="Details" asp-route-id="@item.Id">
+                        <i class="fas fa-eye"></i>
+                    </a>
+                    <a class="btn btn-sm btn-danger" asp-action="Delete" asp-route-id="@item.Id">
+                        <i class="fas fa-trash-alt"></i>
+                    </a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

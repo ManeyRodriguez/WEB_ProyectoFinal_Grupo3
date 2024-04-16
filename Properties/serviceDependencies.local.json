@@ -1,0 +1,8 @@
+{
+  "dependencies": {
+    "mssql1": {
+      "type": "mssql.local",
+      "connectionId": "ConnectionStrings:WEB_ProyectoFinal_Grupo3ContextConnection"
+    }
+  }
+}
