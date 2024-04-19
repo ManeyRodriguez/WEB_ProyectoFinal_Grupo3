@@ -131,7 +131,7 @@ namespace WEB_ProyectoFinal_Grupo3.Areas.Identity.Pages.Account
             ///     directly from your code. This API may change or be removed in future releases.
             /// </summary>
             [Required]
-            [StringLength(100, ErrorMessage = "The {0} must be at least {2} and at max {1} characters long.", MinimumLength = 6)]
+            [StringLength(100, ErrorMessage = "La {0} debe tener al menos {2} y un máximo de {1} caracteres.", MinimumLength = 6)]
             [DataType(DataType.Password)]
             [Display(Name = "Password")]
             public string Password { get; set; }
@@ -142,13 +142,14 @@ namespace WEB_ProyectoFinal_Grupo3.Areas.Identity.Pages.Account
             /// </summary>
             [DataType(DataType.Password)]
             [Display(Name = "Confirm password")]
-            [Compare("Password", ErrorMessage = "The password and confirmation password do not match.")]
+            [Compare("Password", ErrorMessage = "Las contraseñas no coinciden.")]
             public string ConfirmPassword { get; set; }
 
 
-            [Required]
+            [Required(ErrorMessage = "Seleccione una membresia.")]
             [Display(Name = "Membresia")]
-            public TiposMembresias IdMembresia { get; set; }
+            [Range(1, 3, ErrorMessage = "Seleccione una membresia.")]
+            public int IdMembresia { get; set; }
         }
 
 
@@ -166,7 +167,21 @@ namespace WEB_ProyectoFinal_Grupo3.Areas.Identity.Pages.Account
             {
                 var user = CreateUser();
 
-                user.IdMembresia = Input.IdMembresia;
+             
+                if (Input.IdMembresia == 1)
+                {
+                    user.IdMembresia = TiposMembresias.Estandar;
+                }
+                else if (Input.IdMembresia == 2)
+                {
+                    user.IdMembresia = TiposMembresias.Premium;
+                }
+                else if (Input.IdMembresia == 3)
+                {
+                    user.IdMembresia = TiposMembresias.VIP;
+                }
+
+               
                 user.Cedula = Input.Cedula;
                 user.PhoneNumber = Input.PhoneNumber;
                 user.FirstName = Input.FirstName.ToLower();
@@ -176,6 +191,8 @@ namespace WEB_ProyectoFinal_Grupo3.Areas.Identity.Pages.Account
                 await _userStore.SetUserNameAsync(user, Input.Email, CancellationToken.None);
                 await _emailStore.SetEmailAsync(user, Input.Email, CancellationToken.None);
                 var result = await _userManager.CreateAsync(user, Input.Password);
+
+
 
 
              

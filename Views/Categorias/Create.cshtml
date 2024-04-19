@@ -4,8 +4,9 @@
     ViewData["Title"] = "Create";
 }
 
-<div class="container d-flex justify-content-center align-items-center">
-    <div class="row">
+<div class="container">
+    <div class="row justify-content-center align-items-center">
+        <!-- Añadida la clase align-items-center -->
         <div class="col-md-6">
             <div class="card">
                 <h5 class="card-header">Crear Categoría</h5>
@@ -36,6 +37,11 @@
                     </form>
                 </div>
             </div>
+        </div>
+    </div>
+    <div class="row justify-content-center">
+        <div class="col-md-6 text-center">
+            <a asp-action="Index" class="btn btn-secondary">Volver a la lista</a>
         </div>
     </div>
 </div>

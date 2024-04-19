@@ -64,117 +64,63 @@
     <section id="main-content ">
        
 
-        <div class="container-fluid bg-white mt-1">
+        <div class="container-fluid bg-white px-2">
             @RenderBody()
+
+
+
+            <footer id="footer">
+                <div class="ontainer-fluid mt-1 ">
+                    <!-- Footer content -->
+                    <section class="text-white text-center text-lg-start bg-dark">
+                        <!-- Section: Social media -->
+                        <section id="Social-Media" class="d-flex justify-content-center justify-content-lg-between p-4  bg-secondary">
+                            <!-- Left -->
+                            <div class="me-5 d-none d-lg-block">
+                                <span class="text-dark">Conéctate con nosotros en las redes sociales:</span>
+                            </div>
+                            <!-- Left -->
+                            <!-- Right -->
+                            <div>
+                                <a href="#" class="me-4 ">
+                                    <i class="fab fa-facebook-f"></i>
+                                </a>
+                                <a href="#" class="me-4 ">
+                                    <i class="fab fa-twitter"></i>
+                                </a>
+                                <a href="#" class="me-4 ">
+                                    <i class="fab fa-instagram"></i>
+                                </a>
+                            </div>
+                            <!-- Right -->
+                        </section>
+
+                        <!-- Section: Links -->
+                        <section class="Footer-Content">
+                            <div class="container text-center text-md-start mt-1">
+                                <!-- Grid row -->
+                                <div class="row mt-3">
+                                    <!-- Grid column -->
+                                    <!-- ... (el resto de tu contenido) ... -->
+                                </div>
+                                <!-- Grid row -->
+                            </div>
+
+                            <!-- Copyright -->
+                            <div class="container text-center p-4">
+                                @DateTime.Now.Year © <span id="DerechosReservados"></span> Club de Recreación. Todos los derechos reservados.
+                            </div>
+                        </section>
+                    </section>
+                    <!-- End of footer content -->
+                </div>
+            </footer>
+
+
         </div>
     </section>
 
-    <footer id="footer" class="mt-1">
-        <div class="container-fluid">
-            <!-- Footer content -->
-            <section class="text-white text-center text-lg-start bg-dark">
-                <!-- Section: Social media -->
-                <section id="Social-Media" class="d-flex justify-content-center justify-content-lg-between p-4 border-bottom bg-light">
-                    <!-- Left -->
-                    <div class="me-5 d-none d-lg-block">
-                        <span class="text-dark">Conéctate con nosotros en las redes sociales:</span>
-                    </div>
-                    <!-- Left -->
-                    <!-- Right -->
-                    <div>
-                        <a href="#" class="me-4 ">
-                            <i class="fab fa-facebook-f"></i>
-                        </a>
-                        <a href="#" class="me-4 ">
-                            <i class="fab fa-twitter"></i>
-                        </a>
-                        <a href="#" class="me-4 ">
-                            <i class="fab fa-instagram"></i>
-                        </a>
-                    </div>
-                    <!-- Right -->
-                </section>
-
-                <!-- Section: Links -->
-                <section class="Footer-Content">
-                    <div class="container text-center text-md-start mt-1">
-                        <!-- Grid row -->
-                        <div class="row mt-3">
-                            <!-- Grid column -->
-                            <div class="col-md-3 col-lg-4 col-xl-3 mx-auto mb-4">
-                                <!-- Content -->
-                                <h6 class="text-uppercase fw-bold mb-4">
-                                    <i class="fas fa-tree me-3"></i>Club de Recreación
-                                </h6>
-                                <p>
-                                    Aquí puedes encontrar información sobre nuestros servicios y actividades.
-                                </p>
-                            </div>
-                            <!-- Grid column -->
-                            <!-- Grid column -->
-                            <div class="col-md-2 col-lg-2 col-xl-2 mx-auto mb-4">
-                                <!-- Links -->
-                                <h6 class="text-uppercase fw-bold mb-4">
-                                    Páginas
-                                </h6>
-                                <p>
-                                    <a href="#categorias" class="text-reset">Categorías</a>
-                                </p>
-
-                                <p>
-                                    <a href="#Paquetes" class="text-reset">Paquetes</a>
-                                </p>
-
-                                <p>
-                                    <a href="#Membresias" class="text-reset">Membresias</a>
-                                </p>
-                                
-                            </div>
-                            <!-- Grid column -->
-                            <!-- Grid column -->
-                            <div class="col-md-3 col-lg-2 col-xl-2 mx-auto mb-4">
-                                <!-- Links -->
-                                <h6 class="text-uppercase fw-bold mb-4">
-                                    Otros enlaces
-                                </h6>
-                                <p>
-                                    <a href="#!" class="text-reset">Chat En Linea</a>
-                                </p>
-                                <p>
-                                    <a href="registro.html" class="text-reset">Registro</a>
-                                </p>
-                                <p>
-                                    <a href="#!" class="text-reset">Ayuda</a>
-                                </p>
-                            </div>
-                            <!-- Grid column -->
-                            <!-- Grid column -->
-                            <div class="col-md-4 col-lg-3 col-xl-3 mx-auto mb-md-0 mb-4">
-                                <!-- Links -->
-                                <h6 class="text-uppercase fw-bold mb-4">Contacto</h6>
-                                <p><i class="fas fa-map-marker-alt me-3"></i> Republica Dominicana</p>
-                                <p>
-                                    <i class="fas fa-envelope me-3"></i>
-                                    info@example.com
-                                </p>
-                                <p><i class="fas fa-phone me-3"></i> + </p>
-                          
-                            </div>
-                            <!-- Grid column -->
-                        </div>
-                        <!-- Grid row -->
-                    </div>
-
-                    <!-- Copyright -->
-                    <div class="container-fluid text-center p-4">
-                        @DateTime.Now.Year © <span id="DerechosReservados"></span> Club de Recreación. Todos los derechos reservados.
-                    </div>
-                </section>
-            </section>
-            <!-- End of footer content -->
-        </div>
-    </footer>
-
+    
 
 
     <!-- Section: Links  -->
@@ -189,8 +135,28 @@
             <i class="bi bi-chat"></i> Chat
         </button>
 
-      
 
+        <!-- Modal de chat -->
+        <div class="modal fade" id="chatModal" tabindex="-1" aria-labelledby="chatModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="chatModalLabel">Chat</h5>
+                        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    </div>
+                    <div class="modal-body">
+                        <div class="chat-container">
+                            <div class="chat-message">Usuario: ¡Hola! ¿Cómo estás?</div>
+                            <div class="chat-message received">Bot: ¡Hola! Estoy bien, gracias por preguntar.</div>
+                        </div>
+                        <div class="input-group mt-3">
+                            <input type="text" class="form-control" placeholder="Escribe tu mensaje...">
+                            <button class="btn btn-primary" type="button">Enviar</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
    
 
         <button id="goTopBtn" class="btn btn-dark text-white"
@@ -213,6 +179,21 @@
 
 
     <script>
+
+
+        document.addEventListener("DOMContentLoaded", function () {
+            // Obtener el botón de chat por su ID
+            var chatBtn = document.getElementById('Chatbtn');
+
+            // Agregar un evento de clic al botón de chat
+            chatBtn.addEventListener('click', function () {
+                // Mostrar el modal correspondiente al botón de chat
+                var myModal = new bootstrap.Modal(document.getElementById('chatModal'));
+                myModal.show();
+            });
+        });
+
+
         // Función para hacer scroll hacia arriba suavemente
         function scrollToTop() {
             window.scrollTo({

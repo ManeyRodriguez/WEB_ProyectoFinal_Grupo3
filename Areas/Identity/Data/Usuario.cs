@@ -16,9 +16,11 @@ namespace WEB_ProyectoFinal_Grupo3.Areas.Identity.Data;
 public class Usuario : IdentityUser
 {
 
-    [Required]
-    [ForeignKey("Membresia")]
-    public required TiposMembresias IdMembresia { get; set; } = TiposMembresias.Estandar;
+    
+  
+    [Required(ErrorMessage = "Debes seleccionar una membresía.")]
+    [Range(1, 3, ErrorMessage = "Debes seleccionar una membresía válida.")]
+    public required TiposMembresias IdMembresia { get; set; }
 
 
     [Required(ErrorMessage = "El campo de Nombre es requerido.")]
